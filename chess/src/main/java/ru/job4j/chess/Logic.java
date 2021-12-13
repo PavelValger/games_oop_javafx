@@ -21,6 +21,14 @@ public final class Logic {
     }
 
     private boolean free(Cell[] steps) throws OccupiedCellException {
+        for (Cell cell : steps) {
+            for (Figure figure : figures) {
+                if (figure != null && cell.equals(figure.position())) {
+                    throw new OccupiedCellException(
+                            "The path of the figure is blocked by another figure");
+                }
+            }
+        }
         return true;
     }
 
@@ -32,10 +40,10 @@ public final class Logic {
     private int findBy(Cell cell) throws FigureNotFoundException {
         for (int index = 0; index != figures.length; index++) {
             Figure figure = figures[index];
-            if (figure != null && figure.position().equals(cell)) {
+            if (figure != null && cell.equals(figure.position())) {
                 return index;
             }
         }
-        throw new FigureNotFoundException();
+        throw new FigureNotFoundException("Figure not found");
     }
 }
