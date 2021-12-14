@@ -18,18 +18,9 @@ public class BishopBlackTest {
 
     @Test
     public void way() {
-        Figure step1 = new BishopBlack(Cell.C1);
-        Cell[] step2 = step1.way(Cell.G5);
-        assertThat(step2, is(new Cell[]{Cell.D2, Cell.E3, Cell.F4, Cell.G5}));
-        Figure step3 = new BishopBlack(Cell.G5);
-        Cell[] step4 = step3.way(Cell.E3);
-        assertThat(step4, is(new Cell[]{Cell.F4, Cell.E3}));
-        Figure step5 = new BishopBlack(Cell.E3);
-        Cell[] step6 = step5.way(Cell.G1);
-        assertThat(step6, is(new Cell[]{Cell.F2, Cell.G1}));
-        Figure step7 = new BishopBlack(Cell.G1);
-        Cell[] step8 = step7.way(Cell.A7);
-        assertThat(step8, is(new Cell[]{Cell.F2, Cell.E3, Cell.D4, Cell.C5, Cell.B6, Cell.A7}));
+        Figure figure = new BishopBlack(Cell.G1);
+        Cell[] cell = figure.way(Cell.A7);
+        assertThat(cell, is(new Cell[]{Cell.F2, Cell.E3, Cell.D4, Cell.C5, Cell.B6, Cell.A7}));
     }
 
     @Test
